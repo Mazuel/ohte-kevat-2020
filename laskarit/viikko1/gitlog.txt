@@ -1,0 +1,58 @@
+commit 108b18e05ae3628d59a657dcdfb2b16aaa3a6952
+Author: Masa Petra <mvpetra@gmail.com>
+Date:   Sun Mar 8 19:52:18 2020 +0200
+
+    Removed file1 and renamed file2 to file22
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 50ea839679cb1c3d4dc995bef0377935a856a057
+Author: Masa Petra <mvpetra@gmail.com>
+Date:   Sun Mar 8 19:51:06 2020 +0200
+
+    Modified file3
+
+ tiedostoja/file3 | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 73a36f78ba01312e3948035440d52e76ac927ffd
+Author: Masa Petra <mvpetra@gmail.com>
+Date:   Sun Mar 8 19:48:39 2020 +0200
+
+    Made 3 files
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit e087c9b053eed4dee40a46d68c2d3bee1f3fb1de
+Author: Masa Petra <mvpetra@gmail.com>
+Date:   Sun Mar 8 19:45:21 2020 +0200
+
+    Muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 57c5b42e31f20ec0a2facf611c4c91b05bdc9e86
+Author: Masa Petra <mvpetra@gmail.com>
+Date:   Sun Mar 8 19:43:18 2020 +0200
+
+    Added tiedosto.txt
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 6e614983c4451d013cf54e6bd8e00524d08f7bd1
+Author: Mazuel <33729634+Mazuel@users.noreply.github.com>
+Date:   Sun Mar 8 17:41:13 2020 +0200
+
+    Initial commit
+
+ .gitignore | 23 +++++++++++++++++++++++
+ README.md  |  2 ++
+ 2 files changed, 25 insertions(+)
