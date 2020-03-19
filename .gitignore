@@ -21,3 +21,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/laskarit/viikko2/Maksukortti/nbproject/
+/laskarit/viikko2/Maksukortti/target/
+/laskarit/viikko2/Unicafe/target
+/laskarit/viikko2/Unicafe/nbproject/
