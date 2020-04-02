@@ -1,4 +1,7 @@
-package ohte2020.WorkingHours;
+package ohte2020.WorkingHours.ui;
+
+import java.io.FileInputStream;
+import java.util.Properties;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -13,16 +16,33 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import ohte2020.WorkingHours.dao.FileUserDao;
+import ohte2020.WorkingHours.service.WorkhourService;
 
 /**
  * JavaFX App
  */
-public class App extends Application {
+public class WorkHoursUi extends Application {
+
+	private WorkhourService whService;
+
+	@Override
+	public void init() throws Exception {
+		Properties properties = new Properties();
+		properties.load(new FileInputStream("application.properties"));
+
+		String userFile = properties.getProperty("userFile");
+		String workhourEventFile = properties.getProperty("workhourEventFile");
+
+		FileUserDao userDao = new FileUserDao(userFile);
+
+		whService = new WorkhourService(userDao);
+	}
 
 	@Override
 	public void start(Stage stage) {
 
-		//Luodaan kirjautumisnäkymä
+		// Luodaan kirjautumisnäkymä
 		GridPane loginGrid = createLoginPane();
 		Text sceneTitle = new Text("Welcome");
 		sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
@@ -39,13 +59,17 @@ public class App extends Application {
 
 		PasswordField pwBox = new PasswordField();
 		loginGrid.add(pwBox, 1, 2);
-		
+
 		Button loginButton = new Button("Login");
 		Button registerButton = new Button("Register");
-		
-		loginGrid.add(loginButton, 1, 3);
-//		loginGrid.add(registerButton, 1, 3);
-		
+
+//		loginGrid.add(loginButton, 1, 3);
+		loginGrid.add(registerButton, 1, 3);
+
+		registerButton.setOnAction(event -> {
+			whService.createUser(userTextField.getText(), pwBox.getText());
+		});
+
 		stage.setTitle("Workhours");
 		Scene scene = new Scene(loginGrid, 300, 275);
 		stage.setScene(scene);

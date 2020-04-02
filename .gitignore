@@ -26,3 +26,5 @@ hs_err_pid*
 /laskarit/viikko2/Unicafe/target
 /laskarit/viikko2/Unicafe/nbproject/
 /WorkingHours/target/
+/WorkingHours/*.txt
+.settings*
