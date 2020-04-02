@@ -48,8 +48,12 @@ public class FileUserDao implements UserDao {
 	}
 
 	@Override
-	public User findByUsername(String username) throws Exception {
-		return null;
+	public User findByUsername(String username) {
+		return users.stream()
+				.filter(u -> u.getUsername()
+				.equals(username))
+				.findFirst()
+				.orElse(null);
 	}
 
 	@Override
