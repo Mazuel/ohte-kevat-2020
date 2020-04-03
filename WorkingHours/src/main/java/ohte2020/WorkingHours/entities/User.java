@@ -2,13 +2,13 @@ package ohte2020.WorkingHours.entities;
 
 public class User {
 
-	private String username;
 	private String name;
+	private String username;
 	private String password;
 
-	public User(String username, String password, String name) {
-		this.username = username;
+	public User(String name, String username, String password) {
 		this.name = name;
+		this.username = username;
 		this.password = password;
 	}
 	

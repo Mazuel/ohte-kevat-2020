@@ -69,14 +69,14 @@ public class RegisterFormController {
 		if (!success) {
 			errorField.setText("Username already exists!");
 			errorField.setTextFill(Color.web("#ff0000", 0.8));
+			return;
 		}
-		
+
 		Alert a = new Alert(AlertType.INFORMATION);
 		a.setContentText("User successfully created!");
 		a.show();
-		
+
 		backToLogin(event);
-		
 
 	}
 

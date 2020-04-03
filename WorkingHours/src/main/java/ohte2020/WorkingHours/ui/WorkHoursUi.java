@@ -48,6 +48,7 @@ public class WorkHoursUi extends Application {
 		
 		LoginFormController loginFormController = loginViewLoader.getController();
 		loginFormController.setRegisterScene(registerScene);
+		loginFormController.setWorkhourService(whService);
 		
 		RegisterFormController registerFormController = registerViewLoader.getController();
 		registerFormController.setLoginScene(loginScene);
