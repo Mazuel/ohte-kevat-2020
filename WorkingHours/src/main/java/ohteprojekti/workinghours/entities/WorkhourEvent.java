@@ -1,4 +1,4 @@
-package ohte2020.WorkingHours.entities;
+package ohteprojekti.workinghours.entities;
 
 import java.util.Date;
 

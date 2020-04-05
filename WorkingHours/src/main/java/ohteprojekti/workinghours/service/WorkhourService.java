@@ -1,7 +1,7 @@
-package ohte2020.WorkingHours.service;
+package ohteprojekti.workinghours.service;
 
-import ohte2020.WorkingHours.dao.UserDao;
-import ohte2020.WorkingHours.entities.User;
+import ohteprojekti.workinghours.dao.UserDao;
+import ohteprojekti.workinghours.entities.User;
 
 public class WorkhourService {
 
@@ -11,13 +11,13 @@ public class WorkhourService {
 	public WorkhourService(UserDao userDao) {
 		this.userDao = userDao;
 	}
-	
+
 	public boolean login(String username, String password) {
 		User user = userDao.findByUsername(username);
-		if(user == null) {
+		if (user == null) {
 			return false;
 		}
-		if(user.getPassword().equals(password)) {
+		if (user.getPassword().equals(password)) {
 			currentUser = user;
 			return true;
 		}

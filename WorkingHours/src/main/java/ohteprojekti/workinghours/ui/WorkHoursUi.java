@@ -1,4 +1,4 @@
-package ohte2020.WorkingHours.ui;
+package ohteprojekti.workinghours.ui;
 
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -7,16 +7,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import ohte2020.WorkingHours.dao.FileUserDao;
-import ohte2020.WorkingHours.service.WorkhourService;
-import ohte2020.WorkingHours.ui.controller.LoginFormController;
-import ohte2020.WorkingHours.ui.controller.RegisterFormController;
+import ohteprojekti.workinghours.dao.FileUserDao;
+import ohteprojekti.workinghours.service.WorkhourService;
+import ohteprojekti.workinghours.ui.controller.LoginFormController;
+import ohteprojekti.workinghours.ui.controller.RegisterFormController;
 
-/**
- * JavaFX App
- */
 public class WorkHoursUi extends Application {
 
 	private WorkhourService whService;

@@ -1,17 +1,17 @@
-package ohte2020.WorkingHours.ui.controller;
+package ohteprojekti.workinghours.ui.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import ohte2020.WorkingHours.service.WorkhourService;
+import ohteprojekti.workinghours.service.WorkhourService;
 
 public class LoginFormController {
 
