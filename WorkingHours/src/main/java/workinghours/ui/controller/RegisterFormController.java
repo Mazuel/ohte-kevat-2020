@@ -1,4 +1,4 @@
-package ohteprojekti.workinghours.ui.controller;
+package workinghours.ui.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import ohteprojekti.workinghours.service.WorkhourService;
+import workinghours.service.WorkhourService;
 
 public class RegisterFormController {
 
@@ -49,14 +49,17 @@ public class RegisterFormController {
 		String name = nameField.getText();
 		String username = usernameField.getText();
 		String password = passwordField.getText();
-		
-		isValidFields(name, username, password);
+		errorField.setTextFill(Color.web("#ff0000", 0.8));
+
+		if(isValidFields(name, username, password)) {
+			errorField.setText("Some fields are empty or invalid!");
+			return;
+		}
 
 		boolean success = workhourService.createUser(name, username, password);
 
 		if (!success) {
 			errorField.setText("Username already exists!");
-			errorField.setTextFill(Color.web("#ff0000", 0.8));
 			return;
 		}
 
@@ -69,20 +72,10 @@ public class RegisterFormController {
 	}
 
 	private boolean isValidFields(String name, String username, String password) {
-		if (name.isEmpty()) {
-			errorField.setText("Invalid name!");
-			return false;
+		if (name.isEmpty() || password.isEmpty() || username.isEmpty()) {
+			return true;
 		}
-		if (username.isEmpty()) {
-			errorField.setText("Invalid username!");
-			return false;
-		}
-
-		if (password.isEmpty()) {
-			errorField.setText("Password is empty!");
-			return false;
-		}
-		return true;
+		return false;
 	}
 
 	public void setWorkhourService(WorkhourService workhourService) {

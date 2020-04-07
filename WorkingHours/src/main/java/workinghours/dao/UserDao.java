@@ -1,8 +1,8 @@
-package ohteprojekti.workinghours.dao;
+package workinghours.dao;
 
 import java.util.List;
 
-import ohteprojekti.workinghours.entities.User;
+import workinghours.entities.User;
 
 public interface UserDao {
 	

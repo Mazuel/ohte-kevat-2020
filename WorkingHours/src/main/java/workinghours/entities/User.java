@@ -1,4 +1,4 @@
-package ohteprojekti.workinghours.entities;
+package workinghours.entities;
 
 public class User {
 
@@ -20,12 +20,12 @@ public class User {
 		this.username = username;
 	}
 
-	public String getLastName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setLastName(String lastName) {
-		this.name = lastName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPassword() {

@@ -1,4 +1,4 @@
-package ohteprojekti.workinghours.ui.controller;
+package workinghours.ui.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import ohteprojekti.workinghours.service.WorkhourService;
+import workinghours.service.WorkhourService;
 
 public class LoginFormController {
 

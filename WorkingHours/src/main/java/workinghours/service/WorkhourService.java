@@ -1,7 +1,7 @@
-package ohteprojekti.workinghours.service;
+package workinghours.service;
 
-import ohteprojekti.workinghours.dao.UserDao;
-import ohteprojekti.workinghours.entities.User;
+import workinghours.dao.UserDao;
+import workinghours.entities.User;
 
 public class WorkhourService {
 

@@ -1,8 +1,8 @@
-package ohteprojekti.workinghours.dao;
+package workinghours.dao;
 
 import java.util.List;
 
-import ohteprojekti.workinghours.entities.WorkhourEvent;
+import workinghours.entities.WorkhourEvent;
 
 public interface WorkhourEventDao {
 
