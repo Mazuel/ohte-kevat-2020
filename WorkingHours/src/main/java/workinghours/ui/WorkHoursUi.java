@@ -34,11 +34,11 @@ public class WorkHoursUi extends Application {
 	public void start(Stage stage) throws Exception {
 
 		// Luodaan kirjautumisnäkymä
-		FXMLLoader loginViewLoader = new FXMLLoader(getClass().getResource("fxml/loginView.fxml"));
+		FXMLLoader loginViewLoader = new FXMLLoader(getClass().getResource("/fxml/loginView.fxml"));
 		Parent loginPane = loginViewLoader.load();
 		Scene loginScene = new Scene(loginPane, 420, 220);
 
-		FXMLLoader registerViewLoader = new FXMLLoader(getClass().getResource("fxml/registerView.fxml"));
+		FXMLLoader registerViewLoader = new FXMLLoader(getClass().getResource("/fxml/registerView.fxml"));
 		Parent registerParent = registerViewLoader.load();
 		Scene registerScene = new Scene(registerParent, 600, 275);
 
