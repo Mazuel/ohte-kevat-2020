@@ -51,7 +51,7 @@ public class RegisterFormController {
 		String password = passwordField.getText();
 		errorField.setTextFill(Color.web("#ff0000", 0.8));
 
-		if(isValidFields(name, username, password)) {
+		if (isValidFields(name, username, password)) {
 			errorField.setText("Some fields are empty or invalid!");
 			return;
 		}

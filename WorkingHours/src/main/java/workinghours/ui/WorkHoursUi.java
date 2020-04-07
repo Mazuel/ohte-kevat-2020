@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import workinghours.dao.FileUserDao;
+import workinghours.dao.FileWorkhourEventDao;
 import workinghours.service.WorkhourService;
 import workinghours.ui.controller.LoginFormController;
 import workinghours.ui.controller.RegisterFormController;
@@ -26,6 +27,7 @@ public class WorkHoursUi extends Application {
 		String workhourEventFile = properties.getProperty("workhourEventFile");
 
 		FileUserDao userDao = new FileUserDao(userFile);
+		FileWorkhourEventDao eventDao = new FileWorkhourEventDao(workhourEventFile);
 
 		whService = new WorkhourService(userDao);
 	}
