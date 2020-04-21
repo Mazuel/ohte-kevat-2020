@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+
+
+<HBox id="hBox" fx:id="hBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label id="eventId" fx:id="eventId" alignment="CENTER" prefHeight="25.0" prefWidth="50.0" text="Label" />
+      <Label id="date" fx:id="date" alignment="CENTER" prefHeight="25.0" prefWidth="113.0" text="Label" />
+      <Label id="description" fx:id="description" alignment="CENTER" prefHeight="25.0" prefWidth="179.0" text="Label" />
+      <Label id="hours" fx:id="hours" alignment="CENTER" prefHeight="25.0" prefWidth="110.0" text="Label" />
+   </children>
+</HBox>

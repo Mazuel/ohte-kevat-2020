@@ -28,3 +28,5 @@ hs_err_pid*
 /WorkingHours/target/
 /WorkingHours/*.txt
 .settings*
+/WorkingHours/.classpath
+/WorkingHours/.project

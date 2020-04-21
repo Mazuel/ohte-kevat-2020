@@ -12,6 +12,7 @@ import workinghours.dao.FileUserDao;
 import workinghours.dao.FileWorkhourEventDao;
 import workinghours.service.WorkhourService;
 import workinghours.ui.controller.LoginFormController;
+import workinghours.ui.controller.MainViewController;
 import workinghours.ui.controller.RegisterFormController;
 
 public class WorkHoursUi extends Application {
@@ -43,15 +44,22 @@ public class WorkHoursUi extends Application {
 		FXMLLoader registerViewLoader = new FXMLLoader(getClass().getResource("/fxml/registerView.fxml"));
 		Parent registerParent = registerViewLoader.load();
 		Scene registerScene = new Scene(registerParent, 600, 275);
+		
+		FXMLLoader mainViewLoader = new FXMLLoader(getClass().getResource("/fxml/mainView.fxml"));
+		Parent mainPane = mainViewLoader.load();
+		Scene mainScene = new Scene(mainPane, 600, 400);
+		
+		MainViewController mainViewController = mainViewLoader.getController();
 
 		LoginFormController loginFormController = loginViewLoader.getController();
 		loginFormController.setRegisterScene(registerScene);
+		loginFormController.setMainScene(mainScene);
 		loginFormController.setWorkhourService(whService);
 
 		RegisterFormController registerFormController = registerViewLoader.getController();
 		registerFormController.setLoginScene(loginScene);
 		registerFormController.setWorkhourService(whService);
-
+		
 		stage.setTitle("Login");
 		stage.setScene(loginScene);
 		stage.show();

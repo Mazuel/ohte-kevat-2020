@@ -32,10 +32,12 @@ public class LoginFormController {
 
 	private Scene registerScene;
 
+	private Scene mainScene;
+	
 	private WorkhourService workhourService;
 
 	@FXML
-	protected void handleLogin() {
+	protected void handleLogin(ActionEvent event) {
 		errorField.setTextFill(Color.web("#ff0000", 0.8));
 		if (nameField.getText().isEmpty() && passwordField.getText().isEmpty()) {
 			errorField.setText("Invalid username or password");
@@ -48,9 +50,16 @@ public class LoginFormController {
 			Alert a = new Alert(AlertType.INFORMATION);
 			a.setContentText("Login successful!");
 			a.show();
+			Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			primaryStage.setScene(mainScene);
 			return;
 		}
 		errorField.setText("Invalid username or password");
+	}
+	
+	protected void switchToMainView(ActionEvent event) {
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setScene(registerScene);
 	}
 
 	@FXML
@@ -61,6 +70,10 @@ public class LoginFormController {
 
 	public void setWorkhourService(WorkhourService workhourService) {
 		this.workhourService = workhourService;
+	}
+	
+	public void setMainScene(Scene scene) {
+		this.mainScene = scene;
 	}
 
 	public void setRegisterScene(Scene scene) {
