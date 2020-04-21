@@ -35,6 +35,8 @@ public class LoginFormController {
 	private Scene mainScene;
 	
 	private WorkhourService workhourService;
+	
+	private MainViewController mvController;
 
 	@FXML
 	protected void handleLogin(ActionEvent event) {
@@ -52,20 +54,20 @@ public class LoginFormController {
 			a.show();
 			Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			primaryStage.setScene(mainScene);
+			mvController.updateListView(workhourService.getWorkhourEvents());
 			return;
 		}
 		errorField.setText("Invalid username or password");
 	}
 	
-	protected void switchToMainView(ActionEvent event) {
-		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setScene(registerScene);
-	}
-
 	@FXML
 	protected void switchToRegisterScene(ActionEvent event) {
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(registerScene);
+	}
+	
+	public void setMainController(MainViewController mvController) {
+		this.mvController = mvController;
 	}
 
 	public void setWorkhourService(WorkhourService workhourService) {

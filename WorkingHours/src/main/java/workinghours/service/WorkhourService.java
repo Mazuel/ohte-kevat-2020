@@ -1,15 +1,29 @@
 package workinghours.service;
 
+import java.util.List;
+
 import workinghours.dao.UserDao;
+import workinghours.dao.WorkhourEventDao;
 import workinghours.entities.User;
+import workinghours.entities.WorkhourEvent;
 
 public class WorkhourService {
 
 	private UserDao userDao;
 	private User currentUser;
-
-	public WorkhourService(UserDao userDao) {
+	private WorkhourEventDao whEventDao;
+	
+	public WorkhourService(UserDao userDao, WorkhourEventDao whEventDao) {
 		this.userDao = userDao;
+		this.whEventDao = whEventDao;
+	}
+	
+	public WorkhourEvent createWorkhourEvent(String description, int hours) throws Exception {
+		return whEventDao.create(new WorkhourEvent(currentUser, description, hours));
+	}
+	
+	public List<WorkhourEvent> getWorkhourEvents() {
+		return whEventDao.getAllByUsername(currentUser);
 	}
 
 	public boolean login(String username, String password) {

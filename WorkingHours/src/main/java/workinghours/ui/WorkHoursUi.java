@@ -30,7 +30,7 @@ public class WorkHoursUi extends Application {
 		FileUserDao userDao = new FileUserDao(userFile);
 		FileWorkhourEventDao eventDao = new FileWorkhourEventDao(workhourEventFile);
 
-		whService = new WorkhourService(userDao);
+		whService = new WorkhourService(userDao, eventDao);
 	}
 
 	@Override
@@ -50,11 +50,13 @@ public class WorkHoursUi extends Application {
 		Scene mainScene = new Scene(mainPane, 600, 400);
 		
 		MainViewController mainViewController = mainViewLoader.getController();
+		mainViewController.setWorkhourService(whService);
 
 		LoginFormController loginFormController = loginViewLoader.getController();
 		loginFormController.setRegisterScene(registerScene);
 		loginFormController.setMainScene(mainScene);
 		loginFormController.setWorkhourService(whService);
+		loginFormController.setMainController(mainViewController);
 
 		RegisterFormController registerFormController = registerViewLoader.getController();
 		registerFormController.setLoginScene(loginScene);

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,8 +19,8 @@ import workinghours.entities.WorkhourEvent;
 
 public class FileWorkhourEventDao implements WorkhourEventDao {
 
-	String file;
-	List<WorkhourEvent> workhourEvents;
+	private String file;
+	private List<WorkhourEvent> workhourEvents;
 
 	public FileWorkhourEventDao(String file) throws Exception {
 		workhourEvents = new ArrayList<>();
@@ -36,14 +37,23 @@ public class FileWorkhourEventDao implements WorkhourEventDao {
 
 	@Override
 	public WorkhourEvent create(WorkhourEvent event) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		workhourEvents.add(event);
+		save();
+		return event;
+	}
+	
+	private void save() throws Exception {
+		Writer writer = new FileWriter(file);
+		Gson gson = new GsonBuilder().create();
+		gson.toJson(workhourEvents, writer);
+		writer.flush();
+		writer.close();
 	}
 
 	@Override
 	public List<WorkhourEvent> getAllByUsername(User user) {
 		return workhourEvents.stream()
-				.filter(e -> e.getUser().equals(user))
+				.filter(e -> e.getUser().getUsername().equals(user.getUsername()))
 				.collect(Collectors.toList());
 	}
 
