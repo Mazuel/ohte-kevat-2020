@@ -11,7 +11,7 @@ Alkuvaiheessa on vain yksi käyttäjärooli eli _normaali käyttäjä_, mutta ta
 
 ### Ennen kirjautumista
  - [x] Käyttäjätunnuksen luominen 
-
+ - [ ] Mahdollisuus määrittää käyttäjän rooli tunnuksien luonnissa 
  - [x] Kirjautuminen järjestelmään olemassa olevilla tunnuksilla
 
 ### Kirjautumisen jälkeen
