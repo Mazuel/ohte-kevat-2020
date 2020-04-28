@@ -10,16 +10,17 @@ Alkuvaiheessa on vain yksi käyttäjärooli eli _normaali käyttäjä_, mutta ta
 
 
 ### Ennen kirjautumista
- - Käyttäjätunnuksen luominen
+ - [x] Käyttäjätunnuksen luominen 
 
- - Kirjautuminen järjestelmään olemassa olevilla tunnuksilla
+ - [x] Kirjautuminen järjestelmään olemassa olevilla tunnuksilla
 
 ### Kirjautumisen jälkeen
  
- - Työtuntien kirjaaminen (päivämäärä, tunnit ja kuvaus)
- - Nähdä kooste tehdyistä työtunneista
- - Lisätä uusia projekteja
- - Uloskirjautuminen järjestelmästä
+ - [x] Työtuntien kirjaaminen (päivämäärä, tunnit ja kuvaus)
+ - [ ] Nähdä kooste tehdyistä työtunneista
+ - [ ] Lisätä uusia projekteja
+ - [ ] Uloskirjautuminen järjestelmästä
+ - [ ] Hallinnoida muita käyttäjiä admin-tason käyttäjällä
 
 ## Jatkokehitysideat
 
