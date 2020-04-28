@@ -17,8 +17,9 @@ Alkuvaiheessa on vain yksi käyttäjärooli eli _normaali käyttäjä_, mutta ta
 ### Kirjautumisen jälkeen
  
  - [x] Työtuntien kirjaaminen (päivämäärä, tunnit ja kuvaus)
- - [ ] Nähdä kooste tehdyistä työtunneista
  - [ ] Lisätä uusia projekteja
+ - [ ] Kirjata työtunteja tietyn projektin alle.
+ - [x] Näkymä tehdyistä työtunneista
  - [ ] Uloskirjautuminen järjestelmästä
  - [ ] Hallinnoida muita käyttäjiä admin-tason käyttäjällä
 
