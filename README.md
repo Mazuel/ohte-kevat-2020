@@ -15,7 +15,7 @@ Kaikki komennot täytyy suorittaa hakemistossa WorkingHours
 
 Käynnistys komentoriviltä:
 
-mvn compile exec:java -Dexec.mainClass=workinghours.Main
+```mvn compile exec:java -Dexec.mainClass=workinghours.Main```
 
 Jar-tiedoston luominen ja käynnistäminen:
 1. mvn package
@@ -23,12 +23,12 @@ Jar-tiedoston luominen ja käynnistäminen:
 
 Testien suorittaminen:
 
-mvn test
+```mvn test```
 
 Testikattavuusraportin luominen:
 
-mvn test jacoco:report
+```mvn test jacoco:report```
 
 Checkstyle-raportin luominen:
 
-mvn jxr:jxr checkstyle:checkstyle
+```mvn jxr:jxr checkstyle:checkstyle```
