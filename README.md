@@ -3,6 +3,7 @@
 ## Dokumentaatio
 
 [Käyttöohje](https://github.com/Mazuel/ohte-kevat-2020/blob/master/WorkingHours/documentation/kayttoohje.md)
+
 [Vaatimusmäärittely](https://github.com/Mazuel/ohte-kevat-2020/blob/master/WorkingHours/documentation/vaatimusmaarittely.md)
 
 ## Releaset
@@ -13,6 +14,7 @@ Viikko 5: [Ensimmäinen release](https://github.com/Mazuel/ohte-kevat-2020/relea
 Kaikki komennot täytyy suorittaa hakemistossa WorkingHours
 
 Käynnistys komentoriviltä:
+
 mvn compile exec:java -Dexec.mainClass=workinghours.Main
 
 Jar-tiedoston luominen ja käynnistäminen:
@@ -20,10 +22,13 @@ Jar-tiedoston luominen ja käynnistäminen:
 2. java -jar target/WorkingHours-0.0.1-SNAPSHOT.jar
 
 Testien suorittaminen:
+
 mvn test
 
 Testikattavuusraportin luominen:
+
 mvn test jacoco:report
 
 Checkstyle-raportin luominen:
+
 mvn jxr:jxr checkstyle:checkstyle
