@@ -18,7 +18,7 @@ public class WorkhourService {
 		this.whEventDao = whEventDao;
 	}
 	
-	public WorkhourEvent createWorkhourEvent(String description, int hours) throws Exception {
+	public WorkhourEvent createWorkhourEvent(String description, double hours) throws Exception {
 		return whEventDao.create(new WorkhourEvent(currentUser, description, hours));
 	}
 	

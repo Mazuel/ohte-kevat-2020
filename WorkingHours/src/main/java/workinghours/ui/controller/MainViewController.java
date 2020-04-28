@@ -4,13 +4,17 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import workinghours.entities.WorkhourEvent;
 import workinghours.service.WorkhourService;
 import workinghours.ui.WorkhourListCell;
@@ -22,15 +26,28 @@ public class MainViewController implements Initializable {
 
 	@FXML
 	private Button addEvent;
-	
+
+	@FXML
+	private TextField description;
+
+	@FXML
+	private TextField hours;
+
+	@FXML
+	private Label descLabel;
+
+	@FXML
+	private Label hourLabel;
+
 	private ObservableList<WorkhourEvent> observableList;
-	
+
 	private WorkhourService whService;
 
 	public MainViewController() {
 		observableList = FXCollections.observableArrayList();
+
 	}
-	
+
 	public void updateListView(List<WorkhourEvent> events) {
 		observableList.addAll(events);
 	}
@@ -38,17 +55,30 @@ public class MainViewController implements Initializable {
 	@FXML
 	protected void newEvent(ActionEvent event) {
 		try {
-			observableList.add(whService.createWorkhourEvent("Toimiiko?", 1));
+			if (!description.getText().isEmpty() & !hours.getText().isEmpty()) {
+				observableList.add(whService.createWorkhourEvent(description.getText(), Double.valueOf(hours.getText())));
+				description.setText("");
+				hours.setText("");
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		workhourListView.setItems(observableList);
 		workhourListView.setCellFactory(workhourListView -> new WorkhourListCell());
+
+		hours.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.matches("\\d*(\\.\\d*)?")) {
+					hours.setText(oldValue);
+				}
+			}
+		});
 	}
 
 	public void setWorkhourService(WorkhourService whService) {

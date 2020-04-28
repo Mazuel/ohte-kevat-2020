@@ -7,10 +7,10 @@ public class WorkhourEvent {
 
 	private String description;
 	private LocalDateTime insertDate;
-	private int hours;
+	private double hours;
 	private User user;
 
-	public WorkhourEvent(User user, String description, int hours) {
+	public WorkhourEvent(User user, String description, double hours) {
 		this.user = user;
 		this.description = description;
 		this.hours = hours;
@@ -33,11 +33,11 @@ public class WorkhourEvent {
 		this.insertDate = insertDate;
 	}
 
-	public int getHours() {
+	public double getHours() {
 		return hours;
 	}
 
-	public void setHours(int hours) {
+	public void setHours(double hours) {
 		this.hours = hours;
 	}
 

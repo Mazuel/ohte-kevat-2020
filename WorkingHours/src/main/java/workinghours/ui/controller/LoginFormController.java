@@ -48,7 +48,6 @@ public class LoginFormController {
 		boolean loginSuccessful = workhourService.login(nameField.getText(), passwordField.getText());
 
 		if (loginSuccessful) {
-			//Siirry yleisnäkymään
 			Alert a = new Alert(AlertType.INFORMATION);
 			a.setContentText("Login successful!");
 			a.show();
