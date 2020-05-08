@@ -2,8 +2,9 @@ package workinghours.service;
 
 import java.util.List;
 
+import workinghours.dao.Dao;
+import workinghours.dao.SqlUserDao;
 import workinghours.dao.UserDao;
-import workinghours.dao.WorkhourEventDao;
 import workinghours.entities.User;
 import workinghours.entities.WorkhourEvent;
 
@@ -13,7 +14,7 @@ public class WorkhourService {
 	private User currentUser;
 	private WorkhourEventDao whEventDao;
 	
-	public WorkhourService(UserDao userDao, WorkhourEventDao whEventDao) {
+	public WorkhourService(SqlUserDao userDao, Dao<WorkhourEvent> whEventDao) {
 		this.userDao = userDao;
 		this.whEventDao = whEventDao;
 	}

@@ -32,3 +32,4 @@ hs_err_pid*
 /WorkingHours/.project
 /WorkingHours/bin/
 /WorkingHours/.settings/
+/WorkingHours/workhours.db

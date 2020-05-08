@@ -8,8 +8,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import workinghours.dao.FileUserDao;
+import workinghours.dao.DatabaseInitializer;
 import workinghours.dao.FileWorkhourEventDao;
+import workinghours.dao.SqlEventDao;
+import workinghours.dao.SqlUserDao;
 import workinghours.service.WorkhourService;
 import workinghours.ui.controller.LoginFormController;
 import workinghours.ui.controller.MainViewController;
@@ -24,11 +26,13 @@ public class WorkHoursUi extends Application {
 		Properties properties = new Properties();
 		properties.load(new FileInputStream("application.properties"));
 
-		String userFile = properties.getProperty("userFile");
-		String workhourEventFile = properties.getProperty("workhourEventFile");
+		String dbUrl = properties.getProperty("dbUrl");
+		
+		DatabaseInitializer.InitializeDb("workhours.db");
 
-		FileUserDao userDao = new FileUserDao(userFile);
-		FileWorkhourEventDao eventDao = new FileWorkhourEventDao(workhourEventFile);
+		SqlUserDao userDao = new SqlUserDao(dbUrl);
+		SqlEventDao eventDao = new SqlEventDao(dbUrl);
+		
 
 		whService = new WorkhourService(userDao, eventDao);
 	}
