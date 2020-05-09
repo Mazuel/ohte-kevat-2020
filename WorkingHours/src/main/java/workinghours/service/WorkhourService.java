@@ -32,7 +32,7 @@ public class WorkhourService {
 		}
 	}
 
-	public boolean login(String username){
+	public boolean login(String username) {
 		try {
 			currentUser = userDao.findByUsername(username);
 		} catch (SQLException e) {

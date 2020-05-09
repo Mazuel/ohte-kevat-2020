@@ -25,7 +25,6 @@ public class SqlEventDao extends SqlConnection implements WorkhourEventDao {
 		stmt.setDouble(4, object.getHours());
 		stmt.executeUpdate();
 		endConnection();
-		// TODO Auto-generated method stub
 		return object;
 
 	}
@@ -37,9 +36,8 @@ public class SqlEventDao extends SqlConnection implements WorkhourEventDao {
 	}
 
 	@Override
-	public WorkhourEvent update(WorkhourEvent object) throws SQLException {
+	public void update(WorkhourEvent object) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

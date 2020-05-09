@@ -30,7 +30,7 @@ public class WorkHoursUi extends Application {
 
 		String dbUrl = properties.getProperty("dbname");
 
-		DatabaseInitializer.InitializeDb("workhours.db");
+		DatabaseInitializer.createDatabase("workhours.db");
 
 		UserDao userDao = new SqlUserDao(dbUrl);
 		WorkhourEventDao eventDao = new SqlEventDao(dbUrl);

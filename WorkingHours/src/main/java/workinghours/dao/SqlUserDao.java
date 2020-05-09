@@ -40,7 +40,6 @@ public class SqlUserDao extends SqlConnection implements UserDao {
 		stmt.setString(1, object.getName());
 		stmt.setString(2, object.getUsername());
 		stmt.executeUpdate();
-		stmt.close();
 		endConnection();
 		return object;
 	}
@@ -52,9 +51,15 @@ public class SqlUserDao extends SqlConnection implements UserDao {
 	}
 
 	@Override
-	public User update(User object) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public void update(User object) throws SQLException {
+		String sql = "UPDATE User SET name = ?, username = ? WHERE id = ?";
+		startConnection();
+		stmt = connection.prepareStatement(sql);
+		stmt.setString(1, object.getName());
+		stmt.setString(2, object.getUsername());
+		stmt.setInt(3, object.getId());
+		stmt.executeUpdate();
+		endConnection();
 	}
 
 	@Override
@@ -67,6 +72,14 @@ public class SqlUserDao extends SqlConnection implements UserDao {
 	public List<User> list() throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public void clear() throws SQLException {
+		String sql = "DELETE FROM User";
+		startConnection();
+		stmt = connection.prepareStatement(sql);
+		stmt.executeUpdate();
+		endConnection();
 	}
 
 }

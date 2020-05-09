@@ -8,7 +8,7 @@ public interface SqlDao<T> {
     T create(T object) throws SQLException;
 
     T read(Integer key) throws SQLException;
-    T update(T object) throws SQLException;
+    void update(T object) throws SQLException;
 
     void delete(Integer key) throws SQLException;
 
