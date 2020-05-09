@@ -1,12 +1,12 @@
 package workinghours.entities;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class WorkhourEvent {
 
 	private String description;
-	private LocalDateTime insertDate;
+	private Timestamp insertDate;
 	private double hours;
 	private User user;
 
@@ -14,7 +14,7 @@ public class WorkhourEvent {
 		this.user = user;
 		this.description = description;
 		this.hours = hours;
-		this.insertDate = LocalDateTime.now();
+		this.insertDate = Timestamp.valueOf(LocalDateTime.now());
 	}
 
 	public String getDescription() {
@@ -25,11 +25,11 @@ public class WorkhourEvent {
 		this.description = description;
 	}
 
-	public LocalDateTime getInsertDate() {
+	public Timestamp getInsertDate() {
 		return insertDate;
 	}
 
-	public void setInsertDate(LocalDateTime insertDate) {
+	public void setInsertDate(Timestamp insertDate) {
 		this.insertDate = insertDate;
 	}
 

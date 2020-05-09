@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface SqlDao<T> {
 
-    void create(T object) throws SQLException;
+    T create(T object) throws SQLException;
 
     T read(Integer key) throws SQLException;
     T update(T object) throws SQLException;

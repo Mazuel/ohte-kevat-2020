@@ -50,16 +50,15 @@ public class WorkhourListCell extends ListCell<WorkhourEvent> {
 				}
 
 			}
-			
+
 			eventId.setText(String.valueOf(1));
-			date.setText(event.getInsertDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
+			date.setText(event.getInsertDate().toLocalDateTime().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
 			description.setText(event.getDescription());
 			hours.setText(String.valueOf(event.getHours()));
-			
-            setText(null);
-            setGraphic(hBox);
+
+			setText(null);
+			setGraphic(hBox);
 		}
-		
 
 	}
 }

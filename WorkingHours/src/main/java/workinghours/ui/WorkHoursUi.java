@@ -9,9 +9,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import workinghours.dao.DatabaseInitializer;
-import workinghours.dao.FileWorkhourEventDao;
+import workinghours.dao.SqlConnection;
 import workinghours.dao.SqlEventDao;
 import workinghours.dao.SqlUserDao;
+import workinghours.dao.UserDao;
+import workinghours.dao.WorkhourEventDao;
 import workinghours.service.WorkhourService;
 import workinghours.ui.controller.LoginFormController;
 import workinghours.ui.controller.MainViewController;
@@ -26,13 +28,12 @@ public class WorkHoursUi extends Application {
 		Properties properties = new Properties();
 		properties.load(new FileInputStream("application.properties"));
 
-		String dbUrl = properties.getProperty("dbUrl");
-		
+		String dbUrl = properties.getProperty("dbname");
+
 		DatabaseInitializer.InitializeDb("workhours.db");
 
-		SqlUserDao userDao = new SqlUserDao(dbUrl);
-		SqlEventDao eventDao = new SqlEventDao(dbUrl);
-		
+		UserDao userDao = new SqlUserDao(dbUrl);
+		WorkhourEventDao eventDao = new SqlEventDao(dbUrl);
 
 		whService = new WorkhourService(userDao, eventDao);
 	}
@@ -48,11 +49,11 @@ public class WorkHoursUi extends Application {
 		FXMLLoader registerViewLoader = new FXMLLoader(getClass().getResource("/fxml/registerView.fxml"));
 		Parent registerParent = registerViewLoader.load();
 		Scene registerScene = new Scene(registerParent, 600, 275);
-		
+
 		FXMLLoader mainViewLoader = new FXMLLoader(getClass().getResource("/fxml/mainView.fxml"));
 		Parent mainPane = mainViewLoader.load();
 		Scene mainScene = new Scene(mainPane, 600, 400);
-		
+
 		MainViewController mainViewController = mainViewLoader.getController();
 		mainViewController.setWorkhourService(whService);
 
@@ -65,7 +66,7 @@ public class WorkHoursUi extends Application {
 		RegisterFormController registerFormController = registerViewLoader.getController();
 		registerFormController.setLoginScene(loginScene);
 		registerFormController.setWorkhourService(whService);
-		
+
 		stage.setTitle("Login");
 		stage.setScene(loginScene);
 		stage.show();

@@ -45,7 +45,7 @@ public class LoginFormController {
 			errorField.setText("Invalid username or password");
 			return;
 		}
-		boolean loginSuccessful = workhourService.login(nameField.getText(), passwordField.getText());
+		boolean loginSuccessful = workhourService.login(nameField.getText());
 
 		if (loginSuccessful) {
 			Alert a = new Alert(AlertType.INFORMATION);

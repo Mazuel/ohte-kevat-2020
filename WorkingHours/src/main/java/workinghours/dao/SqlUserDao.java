@@ -1,45 +1,40 @@
 package workinghours.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 import workinghours.entities.User;
 
-public class SqlUserDao implements SqlDao<User>, UserDao {
+public class SqlUserDao extends SqlConnection implements UserDao {
 	
-    private final String dbURL;
-    private Connection connection;
-    private PreparedStatement stmt;
-    private Statement s;
-    
-    public SqlUserDao(String dbUrl) {
-    	this.dbURL = dbUrl;
-    }
-	
-	
-    @Override
-	public User findByUsername(String username) {
-		return null;
+	public SqlUserDao(String dbname) {
+		super(dbname);
 	}
-	
-	
-    private void startConnection() throws SQLException {
-        connection = DriverManager.getConnection("jdbc:sqlite:" + dbURL);
-        s = connection.createStatement();
-    }
 
-    private void endConnection() throws SQLException {
-        s.close();
-        connection.close();
-    }
+
+	public User findByUsername(String username) throws SQLException {
+		User userFound;
+		String sql = "SELECT * FROM User WHERE username = ? LIMIT 1";
+		startConnection();
+		stmt = connection.prepareStatement(sql);
+		stmt.setString(1, username);
+		ResultSet user = stmt.executeQuery();
+
+		if (user.next()) {
+			userFound = new User(user.getInt("id"), user.getString("name"), user.getString("username"));
+			endConnection();
+			return userFound;
+		}
+		endConnection();
+
+		return null;
+
+	}
 
 	@Override
-	public void create(User object) throws SQLException {
-		String sql = "INSERT INTO User (?, ?)";
+	public User create(User object) throws SQLException {
+		String sql = "INSERT INTO User (name, username) values (?, ?)";
 		startConnection();
 		stmt = connection.prepareStatement(sql);
 		stmt.setString(1, object.getName());
@@ -47,6 +42,7 @@ public class SqlUserDao implements SqlDao<User>, UserDao {
 		stmt.executeUpdate();
 		stmt.close();
 		endConnection();
+		return object;
 	}
 
 	@Override
@@ -55,20 +51,17 @@ public class SqlUserDao implements SqlDao<User>, UserDao {
 		return null;
 	}
 
-
 	@Override
 	public User update(User object) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
 	@Override
 	public void delete(Integer key) throws SQLException {
 		// TODO Auto-generated method stub
-		
-	}
 
+	}
 
 	@Override
 	public List<User> list() throws SQLException {
