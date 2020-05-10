@@ -8,6 +8,8 @@
 
 [Tuntikirjanpito](https://github.com/Mazuel/ohte-kevat-2020/blob/master/WorkingHours/documentation/tuntikirjanpito.md)
 
+[Testidokumentti](https://github.com/Mazuel/ohte-kevat-2020/blob/master/WorkingHours/documentation/testaus.md)
+
 ## Releaset
 
 Viikko 5: [Ensimmäinen release](https://github.com/Mazuel/ohte-kevat-2020/releases/tag/viikko5)
