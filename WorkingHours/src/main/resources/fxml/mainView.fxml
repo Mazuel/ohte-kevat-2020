@@ -15,7 +15,7 @@
 
 <VBox prefHeight="510.0" prefWidth="681.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="workinghours.ui.controller.MainViewController">
   <children>
-      <HBox>
+      <HBox prefHeight="40.0" prefWidth="661.0">
          <children>
             <ToolBar prefHeight="40.0" prefWidth="184.0">
                <items>
@@ -24,14 +24,13 @@
             </ToolBar>
             <ToolBar prefHeight="40.0" prefWidth="337.0">
               <items>
-                <Button fx:id="previousButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Previous" textAlignment="CENTER" />
+                <Button fx:id="previousButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#previousDate" prefHeight="25.0" prefWidth="65.0" text="Previous" textAlignment="CENTER" />
                   <DatePicker fx:id="datePicker" />
-                  <Button fx:id="nextButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Next" textAlignment="CENTER" />
+                  <Button fx:id="nextButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#nextDate" prefHeight="25.0" prefWidth="65.0" text="Next" textAlignment="CENTER" />
               </items>
             </ToolBar>
-            <ToolBar prefHeight="40.0" prefWidth="159.0">
+            <ToolBar prefHeight="40.0" prefWidth="157.0">
                <items>
-                  <Button fx:id="deleteButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#deleteSelected" prefHeight="25.0" prefWidth="103.0" text="Delete selected" textAlignment="CENTER" />
                   <Button fx:id="deleteButton" contentDisplay="CENTER" layoutX="10.0" layoutY="13.0" mnemonicParsing="false" onAction="#deleteSelected" prefHeight="25.0" prefWidth="103.0" text="Delete selected" textAlignment="CENTER" />
                </items>
             </ToolBar>

@@ -1,8 +1,5 @@
 package workinghours.ui;
 
-import java.io.FileInputStream;
-import java.util.Properties;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,18 +18,16 @@ import workinghours.ui.controller.RegisterFormController;
 public class WorkHoursUi extends Application {
 
 	private WorkhourService whService;
+	
+	private final String DATABASE_NAME = "workhours.db"; 
 
 	@Override
 	public void init() throws Exception {
-		Properties properties = new Properties();
-		properties.load(new FileInputStream("application.properties"));
 
-		String dbUrl = properties.getProperty("dbname");
+		DatabaseInitializer.createDatabase(DATABASE_NAME);
 
-		DatabaseInitializer.createDatabase("workhours.db");
-
-		UserDao userDao = new SqlUserDao(dbUrl);
-		WorkhourEventDao eventDao = new SqlEventDao(dbUrl);
+		UserDao userDao = new SqlUserDao(DATABASE_NAME);
+		WorkhourEventDao eventDao = new SqlEventDao(DATABASE_NAME);
 
 		whService = new WorkhourService(userDao, eventDao);
 	}
@@ -51,7 +46,7 @@ public class WorkHoursUi extends Application {
 
 		FXMLLoader mainViewLoader = new FXMLLoader(getClass().getResource("/fxml/mainView.fxml"));
 		Parent mainPane = mainViewLoader.load();
-		Scene mainScene = new Scene(mainPane, 650, 475);
+		Scene mainScene = new Scene(mainPane, 650, 510);
 
 		MainViewController mainViewController = mainViewLoader.getController();
 		mainViewController.setWorkhourService(whService);
@@ -68,7 +63,7 @@ public class WorkHoursUi extends Application {
 		registerFormController.setWorkhourService(whService);
 		
 		stage.setMaxWidth(695);
-		stage.setMaxHeight(500);
+		stage.setMaxHeight(550);
 
 		stage.setTitle("WorkingHours");
 		stage.setScene(loginScene);
