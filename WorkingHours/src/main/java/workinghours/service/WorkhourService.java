@@ -23,8 +23,7 @@ public class WorkhourService {
 	}
 
 	public WorkhourEvent createWorkhourEvent(LocalDate insertDate, String description, double hours) throws Exception {
-		return whEventDao
-				.create(new WorkhourEvent(Timestamp.valueOf(insertDate.atStartOfDay()), loggedIn, description, hours));
+		return whEventDao.create(new WorkhourEvent(Timestamp.valueOf(insertDate.atStartOfDay()), loggedIn, description, hours));
 	}
 
 	public boolean deleteItem(WorkhourEvent whEvent) {
@@ -92,5 +91,9 @@ public class WorkhourService {
 			return false;
 		}
 		return true;
+	}
+	
+	public User getLoggedInUser() {
+		return loggedIn;
 	}
 }

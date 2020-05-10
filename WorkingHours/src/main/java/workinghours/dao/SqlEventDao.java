@@ -33,10 +33,6 @@ public class SqlEventDao extends SqlConnection implements WorkhourEventDao {
 	}
 
 	@Override
-	public void update(WorkhourEvent object) throws SQLException {
-	}
-
-	@Override
 	public void delete(Integer key) throws SQLException {
 		String sql = "DELETE FROM WorkhourEvent WHERE id = ?";
 		startConnection();
@@ -81,5 +77,13 @@ public class SqlEventDao extends SqlConnection implements WorkhourEventDao {
 		}
 		endConnection();
 		return events;
+	}
+	
+	public void clear() throws SQLException {
+		String sql = "DELETE FROM WorkhourEvent";
+		startConnection();
+		stmt = connection.prepareStatement(sql);
+		stmt.executeUpdate();
+		endConnection();
 	}
 }

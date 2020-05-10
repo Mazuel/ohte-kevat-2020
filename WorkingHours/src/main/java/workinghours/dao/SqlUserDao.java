@@ -44,23 +44,6 @@ public class SqlUserDao extends SqlConnection implements UserDao {
 	}
 
 
-	@Override
-	public void update(User object) throws SQLException {
-		String sql = "UPDATE User SET name = ?, username = ? WHERE id = ?";
-		startConnection();
-		stmt = connection.prepareStatement(sql);
-		stmt.setString(1, object.getName());
-		stmt.setString(2, object.getUsername());
-		stmt.setInt(3, object.getId());
-		stmt.executeUpdate();
-		endConnection();
-	}
-
-	@Override
-	public void delete(Integer key) throws SQLException {
-
-	}
-
 	public void clear() throws SQLException {
 		String sql = "DELETE FROM User";
 		startConnection();

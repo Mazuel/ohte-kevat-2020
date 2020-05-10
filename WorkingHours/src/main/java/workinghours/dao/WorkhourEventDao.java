@@ -12,4 +12,6 @@ public interface WorkhourEventDao extends SqlDao<WorkhourEvent> {
 	List<WorkhourEvent> getAllByUsername(User user) throws SQLException;
 	
 	List<WorkhourEvent> getAllByDate(User user, LocalDate time) throws SQLException; 
+	
+	void delete(Integer key) throws SQLException;
 }

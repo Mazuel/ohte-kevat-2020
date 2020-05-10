@@ -29,40 +29,19 @@ public class WorkhourEvent {
 		return description;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public Timestamp getInsertDate() {
 		return insertDate;
-	}
-
-	public void setInsertDate(Timestamp insertDate) {
-		this.insertDate = insertDate;
 	}
 
 	public double getHours() {
 		return hours;
 	}
 
-	public void setHours(double hours) {
-		this.hours = hours;
-	}
-
 	public User getUser() {
 		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	public int getId() {
 		return id;
 	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 }

@@ -42,12 +42,9 @@ public class UserDaoTest {
 	}
 	
 	@Test
-	public void canUpdateUserInfo() throws SQLException {
-		userDao.create(new User("Janne Testi", "Mestarimies"));
-		User user = userDao.findByUsername("Mestarimies");
-		user.setName("Niko Nimenvaihto");
-		userDao.update(user);
-		assertEquals(userDao.findByUsername("Mestarimies").getName(), "Niko Nimenvaihto");
+	public void shouldNotFindUser() throws SQLException {
+		userDao.create(new User("Masse Mainio", "Massimies"));
+		assertEquals(userDao.findByUsername("Karimies"), null);
 	}
-
+	
 }
