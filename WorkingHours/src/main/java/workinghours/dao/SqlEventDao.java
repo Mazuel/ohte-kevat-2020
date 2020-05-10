@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +38,12 @@ public class SqlEventDao extends SqlConnection implements WorkhourEventDao {
 
 	@Override
 	public void delete(Integer key) throws SQLException {
-
+		String sql = "DELETE FROM WorkhourEvent WHERE id = ?";
+		startConnection();
+		stmt = connection.prepareStatement(sql);
+		stmt.setInt(1, key);
+		stmt.executeUpdate();
+		endConnection();
 	}
 
 	@Override
@@ -52,7 +56,7 @@ public class SqlEventDao extends SqlConnection implements WorkhourEventDao {
 		ResultSet rs = stmt.executeQuery();
 
 		while (rs.next()) {
-			events.add(new WorkhourEvent(rs.getTimestamp("insertDate"), user, rs.getString("description"), rs.getDouble("hours")));
+			events.add(new WorkhourEvent(rs.getInt("id"), rs.getTimestamp("insertDate"), user, rs.getString("description"), rs.getDouble("hours")));
 		}
 		endConnection();
 		return events;
@@ -73,7 +77,7 @@ public class SqlEventDao extends SqlConnection implements WorkhourEventDao {
 		ResultSet rs = stmt.executeQuery();
 
 		while (rs.next()) {
-			events.add(new WorkhourEvent(rs.getTimestamp("insertDate"), user, rs.getString("description"), rs.getDouble("hours")));
+			events.add(new WorkhourEvent(rs.getInt("id"), rs.getTimestamp("insertDate"), user, rs.getString("description"), rs.getDouble("hours")));
 		}
 		endConnection();
 		return events;

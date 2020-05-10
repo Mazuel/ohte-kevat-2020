@@ -2,7 +2,6 @@ package workinghours.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 import workinghours.entities.User;
 

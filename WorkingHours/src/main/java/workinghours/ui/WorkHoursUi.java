@@ -9,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import workinghours.dao.DatabaseInitializer;
-import workinghours.dao.SqlConnection;
 import workinghours.dao.SqlEventDao;
 import workinghours.dao.SqlUserDao;
 import workinghours.dao.UserDao;
@@ -56,6 +55,7 @@ public class WorkHoursUi extends Application {
 
 		MainViewController mainViewController = mainViewLoader.getController();
 		mainViewController.setWorkhourService(whService);
+		mainViewController.setLoginScene(loginScene);
 
 		LoginFormController loginFormController = loginViewLoader.getController();
 		loginFormController.setRegisterScene(registerScene);
@@ -70,7 +70,7 @@ public class WorkHoursUi extends Application {
 		stage.setMaxWidth(695);
 		stage.setMaxHeight(500);
 
-		stage.setTitle("Login");
+		stage.setTitle("WorkingHours");
 		stage.setScene(loginScene);
 		stage.show();
 	}

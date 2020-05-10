@@ -12,11 +12,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import workinghours.entities.WorkhourEvent;
 import workinghours.service.WorkhourService;
 import workinghours.ui.WorkhourListCell;
@@ -52,10 +55,15 @@ public class MainViewController implements Initializable {
 
 	@FXML
 	private Label hourLabel;
+	
+	@FXML
+	private Button deleteButton;
 
 	private ObservableList<WorkhourEvent> observableList;
 
 	private WorkhourService whService;
+	
+	private Scene loginScene;
 
 	public MainViewController() {
 		observableList = FXCollections.observableArrayList();
@@ -65,14 +73,35 @@ public class MainViewController implements Initializable {
 	public void updateListView(List<WorkhourEvent> events) {
 		observableList.addAll(events);
 	}
+	
+	@FXML
+	protected void logout(ActionEvent event) {
+		workhourListView.getItems().clear();
+		whService.logout();
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setScene(loginScene);
+	}
+	
+	@FXML
+	protected void deleteSelected(ActionEvent event) {
+		final int selectedIndex = workhourListView.getSelectionModel().getSelectedIndex();
+		if(selectedIndex == -1) {
+			return;
+		}
+		WorkhourEvent deleteItem = workhourListView.getItems().get(selectedIndex);
+		workhourListView.getItems().remove(selectedIndex);
+		whService.deleteItem(deleteItem);
+		
+	}
 
 	@FXML
 	protected void newEvent(ActionEvent event) {
 		try {
 			if (!description.getText().isEmpty() & !hours.getText().isEmpty()) {
-				observableList.add(whService.createWorkhourEvent(insertPicker.getValue(), description.getText(), Double.valueOf(hours.getText())));
+				whService.createWorkhourEvent(insertPicker.getValue(), description.getText(), Double.valueOf(hours.getText()));
 				description.setText("");
 				hours.setText("");
+				updateListView(whService.getEventsBySelectedDate(datePicker.getValue()));
 			}
 		} catch (Exception e) {
 			
@@ -96,6 +125,9 @@ public class MainViewController implements Initializable {
 		});
 	}
 
+	public void setLoginScene(Scene scene) {
+		this.loginScene = scene;
+	}
 	public void setWorkhourService(WorkhourService whService) {
 		this.whService = whService;
 	}
