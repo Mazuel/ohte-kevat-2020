@@ -10,11 +10,13 @@ Ohjelma ei vaadi erillistä konfiguraatiota, vaan jar tiedosto voidaan ajaa suor
 ## Kirjautumisnäkymä
 
 ![LoginScreen](https://github.com/Mazuel/ohte-kevat-2020/blob/master/Images/LoginScreen.JPG)
+
 Järjestelmään kirjaudutaan omalla käyttäjätunnuksella.
 
 ## Tunnuksen luontinäkymä
 
 ![RegisterScreen](https://github.com/Mazuel/ohte-kevat-2020/blob/master/Images/RegisterScreen.JPG)
+
 Käyttäjätunnukseen kuuluu nimi sekä käyttäjänimi. Käyttäjänimen pitää olla yksilöllinen, sekä vähintään 4 merkkiä pitkä.
 
 ## Päänäkymä
