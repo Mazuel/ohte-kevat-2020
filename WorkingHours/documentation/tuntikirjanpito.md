@@ -10,4 +10,6 @@
 | 7.4. | 3    | Työtuntien kirjaamiseen liittyvää koodin tekemistä ja testien kirjoittamista |
 | 21.4. | 3    | Repositorion siistimistä ja päänäkymän luominen |
 | 28.4. | 3    | Käyttöliittymäsuunnittelua ja päänäkymään mahdollisuus lisätä manuaalisesti tietoja |
-| yht   | 18  | | 
+| 9.5 | 6 | Tietokantayhteyden luomista ja muita muutoksia |
+| 10.5 | 6 | Testien kirjoittamista ja sovelluksen viimeistelyä |
+| yht   | 30  | | 
