@@ -16,4 +16,4 @@ Molemmat Dao-luokat ovat testattu luomalla tilapäinen testitietokanta, joka vas
 
 ### Testauskattavuus
 
-![JacocoReport]()
+![JacocoReport](https://github.com/Mazuel/ohte-kevat-2020/blob/master/Images/JacocoReport.JPG)
