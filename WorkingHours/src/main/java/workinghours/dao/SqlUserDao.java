@@ -58,7 +58,6 @@ public class SqlUserDao extends SqlConnection implements UserDao {
 
 	@Override
 	public void delete(Integer key) throws SQLException {
-		// TODO Auto-generated method stub
 
 	}
 

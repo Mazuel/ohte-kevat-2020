@@ -134,7 +134,7 @@ public class MainViewController implements Initializable {
 		hours.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-				if (!newValue.matches("\\d*(\\.\\d*)?")) {
+				if (!newValue.matches("^\\d{0,3}(\\.\\d{0,1})?")) {
 					hours.setText(oldValue);
 				}
 			}
