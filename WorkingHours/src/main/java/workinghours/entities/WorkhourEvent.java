@@ -10,11 +10,11 @@ public class WorkhourEvent {
 	private double hours;
 	private User user;
 
-	public WorkhourEvent(User user, String description, double hours) {
+	public WorkhourEvent(Timestamp insertTime, User user, String description, double hours) {
 		this.user = user;
 		this.description = description;
 		this.hours = hours;
-		this.insertDate = Timestamp.valueOf(LocalDateTime.now());
+		this.insertDate = insertTime;
 	}
 
 	public String getDescription() {

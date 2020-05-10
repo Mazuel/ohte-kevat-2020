@@ -1,6 +1,7 @@
 package workinghours.ui.controller;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -12,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -26,6 +28,18 @@ public class MainViewController implements Initializable {
 
 	@FXML
 	private Button addEvent;
+	
+	@FXML
+	private Button previousButton;
+	
+	@FXML
+	private DatePicker datePicker;
+	
+	@FXML
+	private DatePicker insertPicker;
+	
+	@FXML
+	private Button nextButton;
 
 	@FXML
 	private TextField description;
@@ -56,13 +70,12 @@ public class MainViewController implements Initializable {
 	protected void newEvent(ActionEvent event) {
 		try {
 			if (!description.getText().isEmpty() & !hours.getText().isEmpty()) {
-				observableList.add(whService.createWorkhourEvent(description.getText(), Double.valueOf(hours.getText())));
+				observableList.add(whService.createWorkhourEvent(insertPicker.getValue(), description.getText(), Double.valueOf(hours.getText())));
 				description.setText("");
 				hours.setText("");
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 	}
 
@@ -70,6 +83,8 @@ public class MainViewController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		workhourListView.setItems(observableList);
 		workhourListView.setCellFactory(workhourListView -> new WorkhourListCell());
+		insertPicker.setValue(LocalDate.now());
+		datePicker.setValue(LocalDate.now());
 
 		hours.textProperty().addListener(new ChangeListener<String>() {
 			@Override

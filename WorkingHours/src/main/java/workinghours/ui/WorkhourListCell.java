@@ -52,7 +52,7 @@ public class WorkhourListCell extends ListCell<WorkhourEvent> {
 			}
 
 			eventId.setText(String.valueOf(1));
-			date.setText(event.getInsertDate().toLocalDateTime().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
+			date.setText(event.getInsertDate().toLocalDateTime().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
 			description.setText(event.getDescription());
 			hours.setText(String.valueOf(event.getHours()));
 

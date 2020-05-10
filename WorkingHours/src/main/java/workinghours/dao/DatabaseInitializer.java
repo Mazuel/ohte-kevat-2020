@@ -6,9 +6,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DatabaseInitializer {
+	
+	private static final String dbPath = "jdbc:sqlite:";
 
 	public static void createDatabase(String dbUrl) throws SQLException {
-		Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dbUrl);
+		Connection connection = DriverManager.getConnection(dbPath + dbUrl);
 		Statement statement = connection.createStatement();
 
 		statement.execute("CREATE TABLE IF NOT EXISTS User (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(30), username VARCHAR(25))");

@@ -22,9 +22,6 @@ public class LoginFormController {
 	private TextField nameField;
 
 	@FXML
-	private TextField passwordField;
-
-	@FXML
 	private Button loginButton;
 
 	@FXML
@@ -41,8 +38,8 @@ public class LoginFormController {
 	@FXML
 	protected void handleLogin(ActionEvent event) {
 		errorField.setTextFill(Color.web("#ff0000", 0.8));
-		if (nameField.getText().isEmpty() && passwordField.getText().isEmpty()) {
-			errorField.setText("Invalid username or password");
+		if (nameField.getText().isEmpty()) {
+			errorField.setText("Invalid username");
 			return;
 		}
 		boolean loginSuccessful = workhourService.login(nameField.getText());
@@ -53,7 +50,7 @@ public class LoginFormController {
 			a.show();
 			Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			primaryStage.setScene(mainScene);
-			mvController.updateListView(workhourService.getWorkhourEvents());
+			mvController.updateListView(workhourService.getEventsByCurrentDate());
 			return;
 		}
 		errorField.setText("Invalid username or password");

@@ -1,7 +1,5 @@
 package workinghours.ui.controller;
 
-import java.sql.SQLException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -25,9 +23,6 @@ public class RegisterFormController {
 
 	@FXML
 	private TextField usernameField;
-
-	@FXML
-	private TextField passwordField;
 
 	@FXML
 	private Button submitButton;
@@ -56,11 +51,8 @@ public class RegisterFormController {
 			errorField.setText("Some fields are empty or invalid!");
 			return;
 		}
-
-		try {
-			workhourService.createUser(name, username);
-		} catch (SQLException e) {
-			errorField.setText("Username already exists!");
+		if(!workhourService.createUser(name, username)) {
+			errorField.setText("username already exists");
 			return;
 		}
 
@@ -73,7 +65,7 @@ public class RegisterFormController {
 	}
 
 	private boolean isValidFields(String name, String username) {
-		if (name.isEmpty() || username.isEmpty()) {
+		if (name.isEmpty() || username.isEmpty() || username.length() < 4) {
 			return false;
 		}
 		return true;

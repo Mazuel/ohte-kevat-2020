@@ -1,6 +1,9 @@
 package workinghours.service;
 
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,8 +23,8 @@ public class WorkhourService {
 		this.whEventDao = whEventDao;
 	}
 
-	public WorkhourEvent createWorkhourEvent(String description, double hours) throws Exception {
-		return whEventDao.create(new WorkhourEvent(currentUser, description, hours));
+	public WorkhourEvent createWorkhourEvent(LocalDate insertDate, String description, double hours) throws Exception {
+		return whEventDao.create(new WorkhourEvent(Timestamp.valueOf(insertDate.atStartOfDay()), currentUser, description, hours));
 	}
 
 	public List<WorkhourEvent> getWorkhourEvents() {
@@ -30,6 +33,15 @@ public class WorkhourService {
 		} catch (SQLException e) {
 			return Collections.emptyList();
 		}
+	}
+	
+	public List<WorkhourEvent> getEventsByCurrentDate() {
+		try {
+			return whEventDao.getAllByDate(currentUser, LocalDate.now());
+		} catch (SQLException e) {
+			return Collections.emptyList();
+		}
+		
 	}
 
 	public boolean login(String username) {
@@ -44,16 +56,17 @@ public class WorkhourService {
 		return true;
 	}
 
-	public boolean createUser(String name, String username) throws SQLException {
-		if (userDao.findByUsername(username) != null) {
-			return false;
-		}
-
-		User user = new User(name, username);
+	public boolean createUser(String name, String username) {
+		User foundUser;
 		try {
-			userDao.create(user);
+			foundUser = userDao.findByUsername(username);
+			
+			if(foundUser != null) {
+				return false;
+			}
+			
+			userDao.create(new User(name, username));
 		} catch (Exception e) {
-			System.out.println(e);
 			return false;
 		}
 		return true;

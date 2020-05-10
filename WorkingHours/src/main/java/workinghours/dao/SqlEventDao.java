@@ -2,6 +2,10 @@ package workinghours.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,26 +34,12 @@ public class SqlEventDao extends SqlConnection implements WorkhourEventDao {
 	}
 
 	@Override
-	public WorkhourEvent read(Integer key) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void update(WorkhourEvent object) throws SQLException {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void delete(Integer key) throws SQLException {
-		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public List<WorkhourEvent> list() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -62,11 +52,30 @@ public class SqlEventDao extends SqlConnection implements WorkhourEventDao {
 		ResultSet rs = stmt.executeQuery();
 
 		while (rs.next()) {
-			events.add(new WorkhourEvent(user, rs.getString("description"), rs.getDouble("hours")));
+			events.add(new WorkhourEvent(rs.getTimestamp("insertDate"), user, rs.getString("description"), rs.getDouble("hours")));
 		}
-		stmt.close();
 		endConnection();
-		// TODO Auto-generated method stub
+		return events;
+	}
+
+	@Override
+	public List<WorkhourEvent> getAllByDate(User user, LocalDate date) throws SQLException {
+		List<WorkhourEvent> events = new ArrayList<>();
+		Timestamp beginning = Timestamp.valueOf(date.atTime(LocalTime.MIN));
+		Timestamp end = Timestamp.valueOf(date.atTime(LocalTime.MAX));
+		String sql = "SELECT * FROM WorkhourEvent WHERE user_id = ? AND insertDate BETWEEN ? AND ?";
+		startConnection();
+		stmt = connection.prepareStatement(sql);
+		stmt.setInt(1, user.getId());
+		stmt.setTimestamp(2, beginning);
+		stmt.setTimestamp(3, end);
+
+		ResultSet rs = stmt.executeQuery();
+
+		while (rs.next()) {
+			events.add(new WorkhourEvent(rs.getTimestamp("insertDate"), user, rs.getString("description"), rs.getDouble("hours")));
+		}
+		endConnection();
 		return events;
 	}
 }

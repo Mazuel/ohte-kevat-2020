@@ -44,11 +44,6 @@ public class SqlUserDao extends SqlConnection implements UserDao {
 		return object;
 	}
 
-	@Override
-	public User read(Integer key) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void update(User object) throws SQLException {
@@ -68,12 +63,6 @@ public class SqlUserDao extends SqlConnection implements UserDao {
 
 	}
 
-	@Override
-	public List<User> list() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	public void clear() throws SQLException {
 		String sql = "DELETE FROM User";
 		startConnection();

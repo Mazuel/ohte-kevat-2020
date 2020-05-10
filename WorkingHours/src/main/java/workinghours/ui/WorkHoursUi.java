@@ -52,7 +52,7 @@ public class WorkHoursUi extends Application {
 
 		FXMLLoader mainViewLoader = new FXMLLoader(getClass().getResource("/fxml/mainView.fxml"));
 		Parent mainPane = mainViewLoader.load();
-		Scene mainScene = new Scene(mainPane, 600, 400);
+		Scene mainScene = new Scene(mainPane, 650, 475);
 
 		MainViewController mainViewController = mainViewLoader.getController();
 		mainViewController.setWorkhourService(whService);
@@ -66,6 +66,9 @@ public class WorkHoursUi extends Application {
 		RegisterFormController registerFormController = registerViewLoader.getController();
 		registerFormController.setLoginScene(loginScene);
 		registerFormController.setWorkhourService(whService);
+		
+		stage.setMaxWidth(695);
+		stage.setMaxHeight(500);
 
 		stage.setTitle("Login");
 		stage.setScene(loginScene);
