@@ -17,7 +17,7 @@ Tällä hetkellä on vain yhden tyyppisiä käyttäjiä, jotka voivat kirjata he
  
  - [x] Työtuntien kirjaaminen (päivämäärä, tunnit ja kuvaus)
  - [x] Työtuntitapahtuman poistaminen
- - [x] Näkymä tehdyistä työtunneista
+ - [x] Näkymä tehdyistä työtunneista päiväkohtaisesti
  - [x] Uloskirjautuminen järjestelmästä
 
 ## Jatkokehitysideat
