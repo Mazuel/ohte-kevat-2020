@@ -47,6 +47,8 @@
 				<configuration>
 					<excludes>
 						<exclude>workinghours/ui/**/*</exclude>
+						<exclude>Main.java</exclude>
+						<exclude>workinghours/entities/*</exclude>
 					</excludes>
 				</configuration>
 				<executions>
