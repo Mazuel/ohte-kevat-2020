@@ -1,31 +1,30 @@
 # Vaatimusmäärittely
 
 ## Sovelluksen tarkoitus
-Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa tehdyistä työtunneista ja merkitä niitä tietyn projektin alle. Useamman rekisteröityneen käyttäjän on mahdollista kirjata omat työtuntinsa ja nähdä yksilöllisesti kooste niistä.
+Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa tehdyistä työtunneista. Useamman rekisteröityneen käyttäjän on mahdollista kirjata omat työtuntinsa ja nähdä päiväkohtaisesti omat työtuntinsa.
 
 ## Käyttäjät
-Alkuvaiheessa on vain yksi käyttäjärooli eli _normaali käyttäjä_, mutta tarkoituksena olisi myös mahdollisuus lisätä ns. _admin_-oikeuksilla olevia käyttäjiä.
+Tällä hetkellä on vain yhden tyyppisiä käyttäjiä, jotka voivat kirjata henkilökohtaisesti omia tuntejaan.
 
 ## Perusversion toiminnallisuus
 
 
 ### Ennen kirjautumista
- - [x] Käyttäjätunnuksen luominen 
- - [ ] Mahdollisuus määrittää käyttäjän rooli tunnuksien luonnissa 
+ - [x] Käyttäjätunnuksen luominen (nimi ja käyttäjänimi)
  - [x] Kirjautuminen järjestelmään olemassa olevilla tunnuksilla
 
 ### Kirjautumisen jälkeen
  
  - [x] Työtuntien kirjaaminen (päivämäärä, tunnit ja kuvaus)
- - [ ] Lisätä uusia projekteja
- - [ ] Kirjata työtunteja tietyn projektin alle.
+ - [x] Työtuntitapahtuman poistaminen
  - [x] Näkymä tehdyistä työtunneista
- - [ ] Uloskirjautuminen järjestelmästä
- - [ ] Hallinnoida muita käyttäjiä admin-tason käyttäjällä
+ - [x] Uloskirjautuminen järjestelmästä
 
 ## Jatkokehitysideat
 
+ - Admin-tason käyttäjä, joka voi hallinnoida muita käyttäjiä
  - Ladata yhteenveto työtunneista esim. csv-muotoisena tiedostona.
+ - Mahdollisuus luoda ryhmäprojekteja (sallitut henkilöt voivat kirjata tunteja saman projektin alle)
  - Mahdollisuus luoda asiakkaita ja kirjata työtunteja projektin lisäksi niiden alle.
  - Nähdä projekti/asiakas -kohtaisesti kooste tehdyistä tunneista.
  - Pääkäyttäjälle mahdollisuus nähdä kooste kaikkien käyttäjien tehdyistä tunneista.
