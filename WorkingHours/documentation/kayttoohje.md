@@ -1,9 +1,23 @@
 # Käyttöohje
 
+Tuntikirjanpitoon tarkoitettu sovellus, johon voidaan käyttäjäkohtaisesti kirjata tunteina kulutettu aika tiettyyn aktiviteettiin.
+
 ## Konfigurointi
 
-Ohjelma olettaa, että käynistyshakemistossa on konfiguraatio-tiedosto application.properties, joka määrittelee tiedostojen nimet, joihin käyttäjät ja tuntitapahtumat tallennetaan. Tiedoston muoto on seuraava:
+Ohjelma ei vaadi erillistä konfiguraatiota, vaan jar tiedosto voidaan ajaa suoraan.
 
-userFile=users.txt
-workhourEventFile=workhourEvents.txt
+
+## Kirjautumisnäkymä
+
+[LoginScreen]()
+
+## Tunnuksen luontinäkymä
+
+[RegisterScreen]()
+
+## Päänäkymä
+
+[MainView]()
+
+
 
