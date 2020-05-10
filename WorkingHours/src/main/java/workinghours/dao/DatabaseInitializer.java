@@ -7,10 +7,10 @@ import java.sql.Statement;
 
 public class DatabaseInitializer {
 	
-	private static final String dbPath = "jdbc:sqlite:";
+	private static final String DATABASE_NAME = "jdbc:sqlite:";
 
 	public static void createDatabase(String dbUrl) throws SQLException {
-		Connection connection = DriverManager.getConnection(dbPath + dbUrl);
+		Connection connection = DriverManager.getConnection(DATABASE_NAME + dbUrl);
 		Statement statement = connection.createStatement();
 
 		statement.execute("CREATE TABLE IF NOT EXISTS User (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(30), username VARCHAR(25))");
